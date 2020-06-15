@@ -5,13 +5,16 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
+var CanImage, PaperImage
+
 function preload()
 {
-	
+	CanImage = loadImage("dustbingreen.png")
+	PaperImage = loadImage("paper.png")
 }
 
 var ground
-var TrashCanLeftSide, TrashCanBottemSide, TrashCanRightSide
+var TrashCan
 
 var paper
 
@@ -32,13 +35,11 @@ function setup() {
 	
 	ground = new Ground(width/2, 650, width, 10, "Yellow")
 
-	TrashCanLeftSide = new Dustbin(550, 595, 10, 100, "Green")
+	paper = new Paper(100,400, 5, "White", PaperImage)
 
-	TrashCanRightSide = new Dustbin(700, 595, 10,100, "Green")
+	TrashCan = new Dustbin(600, 490, 120,150, "Green", CanImage)
 
-	TrashCanBottemSide = new Dustbin((TrashCanRightSide.x + TrashCanLeftSide.x)/2, 640, TrashCanRightSide.x - TrashCanLeftSide.x,10, "Green")
 
-	paper = new Paper(100,400, 5)
 
 	//ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	//World.add(world, ground);
@@ -50,7 +51,7 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(0);
+  background(255);
   Engine.update(engine)
 
   UpdateAllSprites();

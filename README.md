@@ -1,2 +1,2 @@
-# TrashCanProject2
-s
+# MatterJSBoilerPlate
+MatterJSBoilerPlate
